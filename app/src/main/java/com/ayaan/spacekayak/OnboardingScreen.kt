@@ -20,7 +20,6 @@ import androidx.navigation.NavController
 import com.ayaan.spacekayak.ui.theme.TextBlue
 import kotlinx.coroutines.launch
 import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 
 @Composable
@@ -32,6 +31,7 @@ fun OnboardingScreen(navController: NavController, modifier: Modifier = Modifier
     )
 
     val pagerState = rememberPagerState()
+    val scope=rememberCoroutineScope()
 
     Box(
         modifier = modifier
@@ -60,17 +60,6 @@ fun OnboardingScreen(navController: NavController, modifier: Modifier = Modifier
                 .padding(bottom = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Page indicators
-            HorizontalPagerIndicator(
-                pagerState = pagerState,
-                modifier = Modifier.padding(bottom = 24.dp),
-                activeColor = Color.White,
-                inactiveColor = Color.White.copy(alpha = 0.5f),
-                indicatorWidth = 8.dp,
-                indicatorHeight = 8.dp,
-                spacing = 8.dp
-            )
-            val scope=rememberCoroutineScope()
             // Next button
             Button(
                 onClick = {
