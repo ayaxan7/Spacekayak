@@ -12,8 +12,12 @@ fun AppNavigation(navController: NavHostController,modifier: Modifier) {
         composable(Route.Onboarding.path) {
             OnboardingScreen(navController,modifier)
         }
-        composable(Route.Login.path) {  }
-        composable(Route.TC.path) {  }
+        composable(Route.Login.path) {
+            LoginScreen(navController)
+        }
+        composable(Route.TC.path) {
+            TC(navController)
+        }
         composable(Route.PhoneNumber.path) {  }
         composable(Route.Otp.path) {  }
     }

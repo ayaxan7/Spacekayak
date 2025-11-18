@@ -70,7 +70,7 @@ fun OnboardingScreen(navController: NavController, modifier: Modifier = Modifier
                         }
                     } else {
                         // Navigate to main screen
-                        navController.navigate(Route.Login.path) {
+                        navController.navigate(Route.TC.path) {
                             popUpTo(Route.Onboarding.path) { inclusive = true }
                         }
                     }
