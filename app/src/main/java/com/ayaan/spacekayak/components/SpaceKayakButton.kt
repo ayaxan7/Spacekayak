@@ -47,7 +47,7 @@ fun SpaceKayakButton(text: String, onClick: () -> Unit) {
                 containerColor = Color.Transparent
             ),
             shape = RoundedCornerShape(28.dp),
-            contentPadding = PaddingValues() // important
+            contentPadding = PaddingValues()
         ) {
             Text(
                 text = text,
