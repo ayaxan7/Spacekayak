@@ -21,14 +21,10 @@ fun AppNavigation(navController: NavHostController,modifier: Modifier) {
         composable(Route.TC.path) {
             TC(navController)
         }
-        composable(Route.PhoneNumber.path) {  }
-        composable(Route.Otp.path) {  }
     }
 }
 sealed class Route(val path: String) {
     object Onboarding : Route("onboarding")
     object Login : Route("login")
     object TC : Route("tc")
-    object PhoneNumber: Route("phone_number")
-    object Otp: Route("otp")
 }
