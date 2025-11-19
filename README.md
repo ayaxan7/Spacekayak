@@ -14,8 +14,7 @@ Run with Android Studio
 2. Let it sync/resolve Gradle
 3. Choose a device/emulator and click Run ▶
 
-## Demo (GIF)
-Place your demo GIF at `aassets/demo.gif` and it will render below.
+## Demo
 <table>
   <tr>
     <td align="center">
