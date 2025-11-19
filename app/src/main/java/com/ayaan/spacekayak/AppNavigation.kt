@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 
 @Composable
 fun AppNavigation(navController: NavHostController,modifier: Modifier) {
-    NavHost(navController = navController, startDestination = Route.Onboarding.path){
+    NavHost(navController = navController, startDestination = Route.TC.path){
         composable(Route.Onboarding.path) {
             OnboardingScreen(navController,modifier)
         }
