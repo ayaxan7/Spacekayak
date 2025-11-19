@@ -35,6 +35,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ayaan.spacekayak.screens.components.SpaceKayakButton
+import com.ayaan.spacekayak.ui.theme.BottomSheetBlue
 import com.ayaan.spacekayak.ui.theme.ButtonBlue
 
 @Composable
@@ -47,7 +48,7 @@ fun PhoneVerificationPage(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(Color(0xFF001A3D))
+            .background(BottomSheetBlue)
             .padding(24.dp),
         horizontalAlignment = Alignment.Start
     ) {

@@ -1,4 +1,4 @@
-package com.ayaan.spacekayak.screens
+package com.ayaan.spacekayak
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -18,9 +18,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SpacekayakTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.Companion.fillMaxSize()) { innerPadding ->
                     val navController = rememberNavController()
-                    AppNavigation(navController, modifier = Modifier.padding(innerPadding))
+                    AppNavigation(
+                        navController,
+                        modifier = Modifier.Companion.padding(innerPadding)
+                    )
                 }
             }
         }

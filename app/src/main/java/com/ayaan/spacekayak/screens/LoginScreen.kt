@@ -1,4 +1,4 @@
-package com.ayaan.spacekayak
+package com.ayaan.spacekayak.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
