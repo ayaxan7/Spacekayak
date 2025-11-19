@@ -1,16 +1,19 @@
-package com.ayaan.spacekayak
+package com.ayaan.spacekayak.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.ayaan.spacekayak.LoginScreen
+import com.ayaan.spacekayak.screens.OnboardingScreen
+import com.ayaan.spacekayak.screens.TC
 
 @Composable
 fun AppNavigation(navController: NavHostController,modifier: Modifier) {
     NavHost(navController = navController, startDestination = Route.TC.path){
         composable(Route.Onboarding.path) {
-            OnboardingScreen(navController,modifier)
+            OnboardingScreen(navController, modifier)
         }
         composable(Route.Login.path) {
             LoginScreen(navController)

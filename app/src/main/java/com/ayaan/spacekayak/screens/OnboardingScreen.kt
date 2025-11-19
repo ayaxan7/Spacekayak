@@ -1,4 +1,4 @@
-package com.ayaan.spacekayak
+package com.ayaan.spacekayak.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,6 +17,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.ayaan.spacekayak.R
+import com.ayaan.spacekayak.navigation.Route
 import com.ayaan.spacekayak.ui.theme.TextBlue
 import kotlinx.coroutines.launch
 import com.google.accompanist.pager.HorizontalPager

@@ -1,4 +1,4 @@
-package com.ayaan.spacekayak.components
+package com.ayaan.spacekayak.screens.components.componentnavigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -20,10 +20,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -31,7 +27,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -39,13 +34,16 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ayaan.spacekayak.screens.components.SpaceKayakButton
 import com.ayaan.spacekayak.ui.theme.ButtonBlue
-import com.ayaan.spacekayak.ui.theme.TextDeepBlue
 
 @Composable
-fun BottomSheetContent(onClose: () -> Unit, onContinue: () -> Unit) {
-    var phoneNumber by remember { mutableStateOf("") }
-
+fun PhoneVerificationPage(
+    phoneNumber: String,
+    onPhoneNumberChange: (String) -> Unit,
+    onClose: () -> Unit,
+    onContinue: () -> Unit
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -70,8 +68,7 @@ fun BottomSheetContent(onClose: () -> Unit, onContinue: () -> Unit) {
 
         // Close Button
         Box(
-            modifier = Modifier.fillMaxWidth(),
-            contentAlignment = Alignment.TopEnd
+            modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.TopEnd
         ) {
             IconButton(
                 onClick = onClose,
@@ -120,7 +117,8 @@ fun BottomSheetContent(onClose: () -> Unit, onContinue: () -> Unit) {
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .clip(RoundedCornerShape(4.dp))
             ) {
                 // Country Code
@@ -131,8 +129,9 @@ fun BottomSheetContent(onClose: () -> Unit, onContinue: () -> Unit) {
                     fontWeight = FontWeight.Medium,
                     modifier = Modifier
                         .background(
-                            Color.LightGray,
-                            RoundedCornerShape(4.dp))
+                            Color.LightGray, RoundedCornerShape(4.dp)
+                        )
+                        .padding(horizontal = 4.dp)
                 )
 
                 Spacer(modifier = Modifier.width(12.dp))
@@ -146,40 +145,37 @@ fun BottomSheetContent(onClose: () -> Unit, onContinue: () -> Unit) {
                 )
 
                 Spacer(modifier = Modifier.width(12.dp))
-                    // Phone Number Input
-                    BasicTextField(
-                        value = phoneNumber,
-                        onValueChange = { newValue ->
-                            if (newValue.length <= 10) {
-                                phoneNumber = newValue.filter { it.isDigit() }
-                            }
-                        },
-                        textStyle = TextStyle(
-                            fontSize = 16.sp,
-                            color = Color.Black
-                        ),
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-                        decorationBox = { innerTextField ->
-                            if (phoneNumber.isEmpty()) {
-                                Text(
-                                    text = "Enter Phone Number",
-                                    fontSize = 16.sp,
-                                    color = Color.Gray
-                                )
-                            }
-                            innerTextField()
-                        },
-                        modifier = Modifier.fillMaxWidth(),
-                    )
-                }
+
+                // Phone Number Input
+                BasicTextField(
+                    value = phoneNumber,
+                    onValueChange = { newValue ->
+                        if (newValue.length <= 10) {
+                            onPhoneNumberChange(newValue.filter { it.isDigit() })
+                        }
+                    },
+                    textStyle = TextStyle(
+                        fontSize = 16.sp, color = Color.Black
+                    ),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+                    decorationBox = { innerTextField ->
+                        if (phoneNumber.isEmpty()) {
+                            Text(
+                                text = "Enter Phone Number", fontSize = 16.sp, color = Color.Gray
+                            )
+                        }
+                        innerTextField()
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
         }
 
         Spacer(modifier = Modifier.height(20.dp))
 
         // Continue Button
         SpaceKayakButton(
-            text = "Continue",
-            onClick = onContinue
+            text = "Continue", onClick = onContinue
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -189,13 +185,25 @@ fun BottomSheetContent(onClose: () -> Unit, onContinue: () -> Unit) {
             withStyle(style = SpanStyle(color = Color.White.copy(alpha = 0.7f), fontSize = 13.sp)) {
                 append("By continuing, I confirm I am at least 18 years old and agree to Shield's ")
             }
-            withStyle(style = SpanStyle(color = ButtonBlue, fontSize = 13.sp, textDecoration = TextDecoration.Underline )) {
+            withStyle(
+                style = SpanStyle(
+                    color = ButtonBlue,
+                    fontSize = 13.sp,
+                    textDecoration = TextDecoration.Underline
+                )
+            ) {
                 append("Terms")
             }
             withStyle(style = SpanStyle(color = Color.White.copy(alpha = 0.7f), fontSize = 13.sp)) {
                 append(" and ")
             }
-            withStyle(style = SpanStyle(color = ButtonBlue, fontSize = 13.sp, textDecoration = TextDecoration.Underline)) {
+            withStyle(
+                style = SpanStyle(
+                    color = ButtonBlue,
+                    fontSize = 13.sp,
+                    textDecoration = TextDecoration.Underline
+                )
+            ) {
                 append("Privacy Policy")
             }
             withStyle(style = SpanStyle(color = Color.White.copy(alpha = 0.7f), fontSize = 13.sp)) {

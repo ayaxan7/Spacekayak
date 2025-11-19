@@ -1,4 +1,4 @@
-package com.ayaan.spacekayak.components
+package com.ayaan.spacekayak.screens.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
