@@ -16,8 +16,14 @@ Run with Android Studio
 
 ## Demo (GIF)
 Place your demo GIF at `aassets/demo.gif` and it will render below.
-
-![App demo placeholder](assets/demo.gif)
+<table>
+  <tr>
+    <td align="center">
+      <strong>🎥 Video</strong><br>
+      <img src="assets/demo.gif" width="250" alt="Demo Video"/>
+    </td>
+  </tr>
+</table>
 
 Tip: Keep the GIF under ~10–15 MB so it loads quickly on GitHub.
 
