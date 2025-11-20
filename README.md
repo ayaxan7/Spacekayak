@@ -24,7 +24,6 @@ Run with Android Studio
   </tr>
 </table>
 
-Tip: Keep the GIF under ~10–15 MB so it loads quickly on GitHub.
 
 ## Notes
 - Minimum SDK: 28
